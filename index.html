@@ -286,29 +286,29 @@
                 });
         });
 
-     document.addEventListener('DOMContentLoaded', function () {
-        const sections = document.querySelectorAll('.fade-in');
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('.fade-in');
 
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1 // Trigger when 10% of the element is visible
-        };
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            };
 
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target); // Stop observing once visible
-                }
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Stop observing once visible
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
             });
-        }, observerOptions);
-
-        sections.forEach(section => {
-            observer.observe(section);
         });
-    });
-        
+
     </script>
 
 
@@ -409,7 +409,7 @@
             transform: scale(1.05);
             color: #f4f4f4;
             padding: 5px;
-            border-radius: 5px;
+            border-radius: 25px;
             text-decoration: none;
         }
 
@@ -421,7 +421,7 @@
             color: #fff;
             padding: 0.5rem 1rem;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 25px;
             transition: background-color 0.3s ease, transform 0.3s ease;
             margin-top: 10px;
         }
@@ -482,7 +482,7 @@
             color: #fff;
             padding: 0.5rem 1rem;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 25px;
             transition: background-color 0.3s ease;
         }
 
@@ -506,7 +506,7 @@
             color: #000000;
             padding: 0.5rem 1rem;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 25px;
             transition: background-color 0.3s ease;
 
 
@@ -530,7 +530,7 @@
             margin-bottom: 30px;
             padding: 15px;
             border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 25px;
             background: #fff;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
@@ -580,7 +580,7 @@
         .skill,
         .project {
             background: #ffffff;
-            border-radius: 5px;
+            border-radius: 25px;
             padding: 10px;
             margin-bottom: 30px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -596,13 +596,13 @@
         /* fade in */
 
         .fade-in {
-    opacity: 0;
-    transition: opacity 2.5s ease-in-out;
-}
+            opacity: 0;
+            transition: opacity 2.5s ease-in-out;
+        }
 
-.fade-in.visible {
-    opacity: 1;
-}
+        .fade-in.visible {
+            opacity: 1;
+        }
 
         /* General Form Styles */
         form {
@@ -617,7 +617,7 @@
             /* Adds a more pronounced shadow on hover */
             transform: scale(1.02);
             /* Slightly scales the form on hover */
-            border-radius: 5px;
+            border-radius: 25px;
         }
 
 
@@ -640,11 +640,11 @@
         form input,
         form textarea {
             border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 25px;
         }
 
         form button {
-            border-radius: 5px;
+            border-radius: 25px;
             background-color: #000000;
             color: #fff;
             border: none;
