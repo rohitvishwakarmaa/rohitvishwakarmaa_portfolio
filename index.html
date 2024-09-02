@@ -39,7 +39,7 @@
 
     <!-- Header -->
     <header>
-        <div class="container">
+        <div class="container" class="fade-in">
             <div class="intro">
                 <img src="PORTFOLIO.jpg" alt="Your Photo" class="intro-photo">
                 <h1 id="typed-text"></h1>
@@ -82,7 +82,7 @@
     </header>
 
     <!-- About Section -->
-    <section id="about">
+    <section id="about" class="fade-in">
         <div class="container">
             <h2>ABOUT ME</h2>
             <p>Hello! I’m Rohit, a passionate Python developer and prompt engineer currently diving into the world of
@@ -98,7 +98,7 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills">
+    <section id="skills" class="fade-in">
         <div class="container">
             <h2>SKILLS</h2>
             <div class="skill">
@@ -155,7 +155,7 @@
 
 
     <!-- Projects Section -->
-    <section id="projects">
+    <section id="projects" class="fade-in">
         <div class="container">
             <h2>PROJECTS</h2>
             <div class="project">
@@ -176,7 +176,7 @@
 
 
     <!-- Contact Section -->
-    <section id="contact">
+    <section id="contact" class="fade-in">
         <div class="container">
             <h2>CONTACT ME</h2>
             <form id="contact-form" action="https://formspree.io/f/xnnarabn" method="POST">
@@ -285,6 +285,30 @@
                     document.getElementById('form-message').textContent = "Oops! There was a problem.";
                 });
         });
+
+     document.addEventListener('DOMContentLoaded', function () {
+        const sections = document.querySelectorAll('.fade-in');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1 // Trigger when 10% of the element is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Stop observing once visible
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    });
+        
     </script>
 
 
@@ -569,7 +593,16 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
 
-        /* Responsive Contact form styles */
+        /* fade in */
+
+        .fade-in {
+    opacity: 0;
+    transition: opacity 2.5s ease-in-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+}
 
         /* General Form Styles */
         form {
